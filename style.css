@@ -51,14 +51,19 @@ body {
 .btn-whatsapp {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #25d366; /* verde oficial WhatsApp */
-  color: #ffffff;
-  padding: 8px 12px;
-  border-radius: 8px;
+  gap: 8px; /* espaço entre ícone e texto */
+  background: #25D366; /* verde clássico WhatsApp */
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe57; /* verde hover mais escuro */
+  transform: translateY(-2px); /* leve elevação */
 }
 
 .btn-whatsapp img {
@@ -66,54 +71,73 @@ body {
   height: 20px;
 }
 
-.btn-whatsapp:hover {
-  background: #1ebe5d;
-  transform: translateY(-2px);
-}
-
 /* HERO */
 .hero {
-  background:
-    radial-gradient(circle at top, #1e5bff33, transparent),
-    linear-gradient(135deg, #050b1e, #0a1f44);
-  padding: 120px 20px;
-  text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #050b1e, #0a1f44, #1e5bff33);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  z-index: 1; /* garante que o fundo fique atrás do conteúdo */
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
-  color: #ffffff; /* Produção em → branco */
-  font-weight: 700;
+.hero .particles span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(30, 91, 255, 0.5);
+  animation: float 6s infinite ease-in-out;
 }
 
-.hero h1 span {
-  color: #1e5bff; /* 3D → azul escuro */
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: 0.7; }
+  50% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.7; }
 }
 
-.hero p {
+.hero .hero-content h1 {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+  color: #ffffff; /* Produção em = branco */
+}
+
+.hero .hero-content h1 .blue-text {
+  color: #1e5bff; /* 3D = azul escuro */
+}
+
+.hero .hero-content p {
   font-size: 1.1rem;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto 20px auto;
   opacity: 0.9;
 }
 
 .btn-primary {
   display: inline-block;
-  padding: 10px 18px;
-  background: #1e5bff;
-  color: #ffffff;
+  padding: 12px 24px;
   border-radius: 8px;
+  background-color: #1e5bff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .btn-primary:hover {
-  background: #3a7aff;
-  transform: translateY(-2px);
+  background-color: #3a7fff;
+}
+
+/* PARTICULAS */
+.particles span {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: 0.7; }
+  50% { transform: translateY(-15px) translateX(10px); opacity: 0.9; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.7; }
 }
 
 /* PRODUTOS / CARDS */
@@ -250,15 +274,14 @@ body {
 }
 
 /* PARTICULAS ANIMADAS */
-.particles {
+ .particles {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+  z-index: 0; /* atrás do conteúdo */
+  pointer-events: none; /* para não interferir em cliques */
 }
 
 .particles span {
@@ -325,4 +348,380 @@ body {
   left: 0;
   pointer-events: none;
   z-index: 0;
+}
+
+/* CARDS DE PRODUTOS */
+.cards .card {
+  background: #11162a; /* mantém o fundo escuro */
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 2px solid transparent; /* borda sutil */
+}
+
+/* Hover: microefeitos */
+.cards .card:hover {
+  transform: translateY(-10px); /* levita levemente */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5); /* sombra mais profunda */
+  border: 2px solid #1e5bff; /* borda azul suave */
+}
+
+/* BOTÕES PRINCIPAIS */
+.btn-primary, .btn-card, .btn-whatsapp {
+  transition: all 0.3s ease;
+}
+
+/* Hover - destaque suave */
+.btn-primary:hover {
+  background-color: #1e5bff; /* azul mais forte */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 91, 255, 0.5);
+}
+
+.btn-card:hover {
+  background-color: #1e5bff;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 91, 255, 0.4);
+}
+
+.btn-whatsapp:hover {
+  background-color: #25d366; /* verde WhatsApp mais vivo */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+}
+
+/* FAQ REFINADA */
+.faq h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Cada item da FAQ */
+.faq details {
+  background: #11162a;
+  border-left: 4px solid #1e5bff; /* destaque azul */
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efeito hover no resumo */
+.faq summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ffffff;
+  outline: none; /* remove o estilo padrão do browser */
+}
+
+.faq details:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 91, 255, 0.3);
+}
+
+/* O conteúdo que aparece ao expandir */
+.faq details[open] {
+  background: #1b2140;
+}
+
+.faq details p {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d4e0;
+  transition: all 0.3s ease;
+}
+
+/* FAQ com animação premium */
+.faq summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  background: #11162a;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+.faq summary:hover {
+  background: #1e5bff33;
+}
+
+.faq details[open] summary {
+  background: #0a3cff44;
+}
+
+.faq p {
+  padding: 10px 16px;
+  margin-top: 6px;
+  background: #0b0f1a;
+  border-radius: 6px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+
+.faq details[open] p {
+  opacity: 1;
+  max-height: 300px; /* suficiente para o conteúdo */
+}
+
+/* FUNDO ANIMADO - GRADIENTE SUAVE */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #050b1e, #0a1f44, #1e5bff33);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* ANIMAÇÃO DO GRADIENTE */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* GARANTIR HERO NA FRENTE DAS PARTICULAS */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* garante que o título, texto e botão fiquem acima das partículas */
+}
+
+/* COR DO 3D */
+.blue-text {
+  color: #0a3cff !important; /* azul escuro */
+}
+
+/* HERO CENTRALIZADA */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(circle at top, #1e5bff33, transparent),
+    linear-gradient(135deg, #050b1e, #0a1f44);
+  padding: 120px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-size: 2.6rem; /* ou o tamanho que você tinha antes */
+  margin-bottom: 12px;
+  color: #ffffff; /* Produção em branco */
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 12px auto 24px auto;
+  opacity: 0.9;
+}
+
+.hero-content a.btn-primary {
+  background: #0a3cff;
+  color: #ffffff;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hero-content a.btn-primary:hover {
+  background: #1e5bff;
+  transform: translateY(-3px);
+}
+
+/* PARTICULAS */
+.hero .particles span {
+  position: absolute;
+  border-radius: 50%;
+  background: #0a3cff88;
+  animation: moveParticles 6s linear infinite;
+}
+
+@keyframes moveParticles {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* ======================
+   RESPONSIVIDADE MOBILE - HEADER SIMPLIFICADO
+   ====================== */
+@media (max-width: 768px) {
+  /* Header simplificado */
+  .header {
+    flex-direction: row;
+    justify-content: flex-end; /* só o botão à direita */
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  .logo, .nav a:not(.btn-whatsapp) {
+    display: none; /* esconde logo e links no mobile */
+  }
+
+  .nav {
+    width: auto;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .nav a.btn-whatsapp {
+    width: auto;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  /* Cards - 1 coluna */
+  .products .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product, .card {
+    padding: 20px;
+  }
+
+  /* FAQ */
+  .faq {
+    display: none; /* esconde FAQ no mobile */
+  }
+
+  /* Partículas menores */
+  .particles span {
+    width: 3px !important;
+    height: 3px !important;
+    animation-duration: 4s !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between; /* logo à esquerda, WhatsApp à direita */
+    align-items: center;
+    padding: 12px 16px;
+  }
+
+  /* Mantém o logo visível */
+  .logo {
+    display: block;
+  }
+
+  /* Esconde apenas os links que não são WhatsApp */
+  .nav a:not(.btn-whatsapp) {
+    display: none;
+  }
+
+  .nav {
+    width: auto;
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .nav a.btn-whatsapp {
+    width: auto;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  /* Cards - 1 coluna */
+  .products .cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product, .card {
+    padding: 20px;
+  }
+
+  /* FAQ */
+  .faq {
+    display: none; /* esconde FAQ no mobile */
+  }
+
+  /* Partículas menores */
+  .particles span {
+    width: 3px !important;
+    height: 3px !important;
+    animation-duration: 4s !important;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  /* Esconde apenas os links do nav que não sejam WhatsApp */
+  .nav a:not(.btn-whatsapp) {
+    display: none;
+  }
+
+  /* Mantém o botão WhatsApp no canto superior direito */
+  .nav a.btn-whatsapp {
+    display: inline-flex;
+    position: static;
+    margin-left: auto;
+  }
+
+  /* Garante que a seção FAQ no final da página fique visível */
+  .faq {
+    display: block !important;
+  }
 }
