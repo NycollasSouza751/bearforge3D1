@@ -8,22 +8,35 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="header">
     <div class="logo">BearForge <span>3D</span></div>
 
     <nav class="nav">
       <a href="#produtos">Produtos</a>
       <a href="#faq">FAQ</a>
-      <a href="#contato" class="btn-whatsapp">WhatsApp</a>
+      <a
+        href="https://wa.me/5511963657905?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20na%20BearForge%203D"
+        target="_blank"
+        class="btn-whatsapp"
+      >
+        WhatsApp
+      </a>
     </nav>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
+  <div class="particles"></div> <!-- PARTICULAS FUTURISTAS -->
+
+  <div class="hero-content">
     <h1>Produção em <span>3D</span></h1>
     <p>Produtos úteis, modernos e feitos sob medida.</p>
     <a href="#produtos" class="btn-primary">Ver produtos</a>
-  </section>
+  </div>
+</section>
 
+  <!-- PRODUTOS -->
   <section id="produtos" class="produtos">
     <h2>Produtos</h2>
 
@@ -51,6 +64,7 @@
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="faq">
     <h2>FAQ</h2>
 
@@ -70,9 +84,54 @@
     </details>
   </section>
 
+  <!-- FOOTER -->
   <footer id="contato" class="footer">
     <p>© 2026 BearForge 3D</p>
+    <p class="signature">🧸 produzido com precisão</p>
   </footer>
 
+  <!-- JS DAS PARTICULAS -->
+  <script>
+    const particlesContainer = document.querySelector('.particles');
+    const numberOfParticles = 40; // quantidade de partículas
+
+    for (let i = 0; i < numberOfParticles; i++) {
+      const particle = document.createElement('span');
+      const size = Math.random() * 6 + 4; // tamanho 4-10px
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animationDuration = 6 + Math.random() * 6 + 's';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particlesContainer.appendChild(particle);
+    }
+  </script>
+
+  <!-- JS PARA ANIMAÇÃO DOS CARDS -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    function animateCards() {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+
+        if (cardTop < triggerBottom) {
+          card.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateCards);
+    animateCards(); // para rodar logo de cara
+  </script>
+
 </body>
+<!--
+      ʕ•ᴥ•ʔ
+   BEARFORGE 3D
+  © Nycollas Souza
+-->
 </html>
