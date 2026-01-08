@@ -1,13 +1,16 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* BODY */
 body {
-  background: #0b0f14;
-  color: #e5e5e5;
-  font-family: 'Segoe UI', sans-serif;
+  background: #0b0f1a;
+  color: #ffffff;
+  line-height: 1.6;
 }
 
 /* HEADER */
@@ -15,121 +18,311 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: #000;
+  padding: 16px 24px;
+  background: linear-gradient(90deg, #050b1e, #0a1f44);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 1.6rem;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .logo span {
-  color: #1e90ff;
+  color: #1e5bff; /* 3D azul escuro */
 }
 
 .nav a {
-  margin-left: 20px;
-  color: #e5e5e5;
+  color: #ffffff;
   text-decoration: none;
-  transition: 0.3s;
+  margin-left: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .nav a:hover {
-  color: #1e90ff;
+  color: #1e5bff;
 }
 
+/* BOTÃO WHATSAPP */
 .btn-whatsapp {
-  padding: 8px 16px;
-  border: 1px solid #1e90ff;
-  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366; /* verde oficial WhatsApp */
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
 }
 
 /* HERO */
 .hero {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background:
+    radial-gradient(circle at top, #1e5bff33, transparent),
+    linear-gradient(135deg, #050b1e, #0a1f44);
+  padding: 120px 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: #ffffff; /* Produção em → branco */
+  font-weight: 700;
 }
 
-.hero span {
-  color: #1e90ff;
+.hero h1 span {
+  color: #1e5bff; /* 3D → azul escuro */
 }
 
 .hero p {
-  margin: 20px 0;
-  font-size: 18px;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  opacity: 0.9;
 }
 
 .btn-primary {
-  padding: 12px 28px;
-  background: #1e90ff;
-  color: #000;
+  display: inline-block;
+  padding: 10px 18px;
+  background: #1e5bff;
+  color: #ffffff;
+  border-radius: 8px;
   text-decoration: none;
-  border-radius: 30px;
   font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* PRODUTOS */
+.btn-primary:hover {
+  background: #3a7aff;
+  transform: translateY(-2px);
+}
+
+/* PRODUTOS / CARDS */
 .produtos {
-  padding: 60px 40px;
-}
-
-.produtos h2 {
-  margin-bottom: 30px;
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
 .cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
 }
 
 .card {
-  background: #111;
-  width: 280px;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #121a33, #0d1326);
   padding: 20px;
-  transition: 0.3s;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .card:hover {
   transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
 
 .card .img {
+  background: #1e5bff33; /* placeholder azul claro */
   height: 150px;
-  background: #1e90ff;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
+/* Botão do card */
 .btn-card {
   display: inline-block;
-  margin-top: 10px;
-  color: #1e90ff;
+  margin-top: 12px;
+  padding: 8px 14px;
+  background: #1e5bff;
+  color: #ffffff;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-card:hover {
+  background: #3a7aff;
+  transform: translateY(-2px);
 }
 
 /* FAQ */
 .faq {
-  padding: 60px 40px;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-details {
-  margin-bottom: 15px;
+.faq h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.faq details {
+  background: #11162a;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.faq summary {
+  font-weight: bold;
+}
+
+.faq p {
+  margin-top: 8px;
 }
 
 /* FOOTER */
 .footer {
+  background: #050b1e;
   text-align: center;
   padding: 20px;
-  background: #000;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer p {
+  margin-bottom: 6px;
+}
+
+.signature {
+  font-style: italic;
+  margin-top: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ANIMAÇÃO DE ENTRADA PARA CARDS */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* PARTICULAS ANIMADAS */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles span {
+  position: absolute;
+  background: rgba(30, 91, 255, 0.7);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveParticles linear infinite;
+}
+
+@keyframes moveParticles {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) translateX(15px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+}
+/* PARTICULAS FUTURISTAS */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particles span {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(30, 91, 255, 0.8);
+  box-shadow: 0 0 8px rgba(30, 91, 255, 0.5);
+  animation: moveParticles linear infinite;
+}
+
+@keyframes moveParticles {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-25px) translateX(20px) scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+}
+
+/* LINHAS ENTRE PARTICULAS */
+.particles canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
 }
